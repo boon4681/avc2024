@@ -13,9 +13,7 @@ const circuit = raw_circuit.split("\n").map(r => {
 const graph = (program) => {
     const graph = {};
     program.forEach(({ ret, opr, a, b }) => {
-        if (!graph[ret]) {
-            graph[ret] = { d: [], opr: null };
-        }
+        if (!graph[ret]) graph[ret] = { d: [], opr: null }
         graph[ret].d.push(a, b);
         graph[ret].opr = opr;
         if (!graph[a]) graph[a] = { d: [], opr: null };
